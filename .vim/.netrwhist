@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/matthew/linux_3_8/drivers/scsi'
+let g:netrw_dirhist_2='/home/matthew/linux_3_8/sound/soc/codecs'
+let g:netrw_dirhist_3='/home/matthew/linux_3_18/sound/soc/codecs'
+let g:netrw_dirhist_4='/home/matthew/linux_3_18/sound/soc'
+let g:netrw_dirhist_5='/home/matthew/linux_3_18/sound/soc/codecs'
