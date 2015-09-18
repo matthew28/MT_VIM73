@@ -1,3 +1,4 @@
+
 "------------------設定中文碼的辨識---------------------------------------------
 set fileencodings=utf-8,big5,gbk,euc-jp,euc-kr,utf-bom,iso8859-1,cp936
 set encoding=utf8 
@@ -9,7 +10,40 @@ set tags=/home/matthew/linux/tag               " 設定tag 檔的位置
 set completeopt=longest,menu
 " debian.vim
 
+set nocompatible                       " VIM 不使用和 VI 相容的模式
+filetype off
 
+"-------------------設定Vundle的啟動及相關配件安裝------------------------------------------------------------------
+if 0
+	let iCanHazVundle=1
+	let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+	if !filereadable(vundle_readme)
+		echo "Installing Vundle.."
+		silent !mkdir -p ~/.vim/bundle
+		silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+		let iCanHazVundle=0
+	endif
+	set rtp+=~/.vim/bundle/vundle/
+	call vundle#rc()
+	"My Bundle list
+	"Bundle
+	"'gmarik/vundle'
+	"Bundle
+	"'Valloric/YouCompleteMe'
+	"Bundle
+	""davidhalter/jedi"
+	"Bundle "scrooloose/syntastic"
+	"Bundle "The-NERD-tree"
+	Bundle "taglist.vim"
+endif 
+"----------------------------------------------------------------------------------------
+
+
+"-------------------VIM 對各類檔案的處理-----------------------------------------------------
+filetype on                           " Vim的文件類型檢測功能是否已打開
+filetype plugin on                    " 如果plugin狀態時ON，那麼就會在Vim的運行時環境目錄下加載該類型相關的插件
+filetype indent on                    " 允許vim為不同類型的文件定義不同的縮進格式
+"---------------------------------------------------------------------------------------------
 syntax on "開啟語法加亮
 "-------------- 選擇語法加亮的配色，配色檔目錄(/usr/share/vim/vim72/colors)-----   
 "colorscheme blue  
@@ -32,13 +66,7 @@ colorscheme ron
 "colorscheme ron 
 "---------------------------------------------------------------------------------------------
 
-"-------------------VIM 對各類檔案的處理-----------------------------------------------------
-filetype on                           " Vim的文件類型檢測功能是否已打開
-filetype plugin on                    " 如果plugin狀態時ON，那麼就會在Vim的運行時環境目錄下加載該類型相關的插件
-filetype indent on                    " 允許vim為不同類型的文件定義不同的縮進格式
-"---------------------------------------------------------------------------------------------
 
-set nocompatible                       " VIM 不使用和 VI 相容的模式
 "set sm
 set background=dark                   " 設定 vim 背景對比為深色 ,你也可以設定light (淺色)   
 set tabstop=4                         " tab 的字元數
@@ -84,4 +112,3 @@ nnoremap <silent> <F3> :Grep<CR>
 nmap <s-F9> viwy:vimgrep /\<<C-R>"\>/g **/*.[ch] **/*.[cpp]<CR>
 nmap <c-e> :cs find e <C-R>=expand("<cword>")<CR><CR>
 "---------------------------------------------------------------------------
-"set tags=~/tag"
