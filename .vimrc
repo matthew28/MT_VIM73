@@ -14,6 +14,23 @@ set nocompatible                       " VIM 不使用和 VI 相容的模式
 filetype off
 
 "-------------------設定Vundle的啟動及相關配件安裝------------------------------------------------------------------
+" 　記得又執行 ：BundleInstall 做套件安裝
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+	echo "Installing Vundle.."
+	silent !mkdir -p ~/.vim/bundle
+	!git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+endif
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle "scrooloose/syntastic"
+Bundle "The-NERD-tree"
+Bundle "taglist.vim"
+"Bundle "trinity.vim"  　"這個 trinity.vim 有安裝 可是卻是空. 需要做git reset 才會有東西
+Bundle "wesleyche/Trinity" 
+Bundle "wesleyche/SrcExpl" 
+
+
 if 0
 	let iCanHazVundle=1
 	let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -26,14 +43,11 @@ if 0
 	set rtp+=~/.vim/bundle/vundle/
 	call vundle#rc()
 	"My Bundle list
-	"Bundle
-	"'gmarik/vundle'
-	"Bundle
-	"'Valloric/YouCompleteMe'
-	"Bundle
-	""davidhalter/jedi"
-	"Bundle "scrooloose/syntastic"
-	"Bundle "The-NERD-tree"
+	"Bundle 'gmarik/vundle'
+	"Bundle 'Valloric/YouCompleteMe'
+	"Bundle "davidhalter/jedi"
+	Bundle "scrooloose/syntastic"
+	Bundle "The-NERD-tree"
 	Bundle "taglist.vim"
 endif 
 "----------------------------------------------------------------------------------------
