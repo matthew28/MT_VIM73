@@ -6,7 +6,7 @@ set tenc=utf8
 "----------------------------------------------------------------------------------------
 
 "set tags=/home/matthew/linux_rpi_3.8.y/tags   " 設定tag 檔的位置
-set tags=/home/matthew/linux/tag               " 設定tag 檔的位置
+set tags=/home/matthew/linux/tags               " 設定tag 檔的位置
 set completeopt=longest,menu
 " debian.vim
 
@@ -26,9 +26,28 @@ call vundle#rc()
 Bundle "scrooloose/syntastic"
 Bundle "The-NERD-tree"
 Bundle "taglist.vim"
-"Bundle "trinity.vim"  　"這個 trinity.vim 有安裝 可是卻是空. 需要做git reset 才會有東西
 Bundle "wesleyche/Trinity" 
 Bundle "wesleyche/SrcExpl" 
+Bundle "brookhong/cscope.vim"
+Bundle "yegappan/grep"
+
+
+"if !filereadable(vundle_readme)
+"echo "Installing Vundle.."
+":BundleList    "      - list configured bundles
+":BundleInstall
+":BundleSearch(!) foo " - search(or refresh cache first) for foo
+" :BundleClean(!)     " - confirm(or auto-approve) removal of unused
+"endif
+
+
+"-------自動補全設定 snipmate--------
+" for eq.   for() 按下tab 會自動補全 
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+Bundle 'honza/vim-snippets'
+"-------------------------------------
 
 
 if 0
@@ -123,6 +142,7 @@ nmap <c-k>  :cp<CR>
 
 "nnoremap就在normal模式下(狂按esc后的模式)生效. 搜尋command.
 nnoremap <silent> <F3> :Grep<CR>
-nmap <s-F9> viwy:vimgrep /\<<C-R>"\>/g **/*.[ch] **/*.[cpp]<CR>
+nmap <c-f> viwy:vimgrep /\<<C-R>"\>/g **/*.[ch] **/*.[cpp]<CR>
+"nmap <s-F9> viwy:vimgrep /\<<C-R>"\>/g **/*.[ch] **/*.[cpp]<CR>
 nmap <c-e> :cs find e <C-R>=expand("<cword>")<CR><CR>
 "---------------------------------------------------------------------------
