@@ -10,6 +10,8 @@ set tags=/home/matthew/linux/tags               " 設定tag 檔的位置
 set completeopt=longest,menu
 " debian.vim
 
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
 set nocompatible                       " VIM 不使用和 VI 相容的模式
 filetype off
 
@@ -24,14 +26,16 @@ endif
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle "scrooloose/syntastic"
+Bundle 'gmarik/vundle'
 Bundle "The-NERD-tree"
 Bundle "taglist.vim"
 Bundle "wesleyche/Trinity" 
 Bundle "wesleyche/SrcExpl" 
 Bundle "brookhong/cscope.vim"
 Bundle "yegappan/grep"
-
-
+"Bundle "scrooloose/nerdtree"
+"Bundle "Valloric/YouCompleteMe"
+Plugin 'Valloric/YouCompleteMe'
 "if !filereadable(vundle_readme)
 "echo "Installing Vundle.."
 ":BundleList    "      - list configured bundles
