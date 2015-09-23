@@ -1,22 +1,21 @@
-
 "------------------設定中文碼的辨識---------------------------------------------
 set fileencodings=utf-8,big5,gbk,euc-jp,euc-kr,utf-bom,iso8859-1,cp936
 set encoding=utf8 
 set tenc=utf8
 "----------------------------------------------------------------------------------------
 
-"set tags=/home/matthew/linux_rpi_3.8.y/tags   " 設定tag 檔的位置
-set tags=/home/matthew/linux/tags               " 設定tag 檔的位置
+set tags=/home/matthew/linux_rpi_3.8.y/tags   " 設定tag 檔的位置
+"set tags=/home/matthew/linux/tags               " 設定tag 檔的位置
 set completeopt=longest,menu
 " debian.vim
 
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 set nocompatible                       " VIM 不使用和 VI 相容的模式
 filetype off
 
 "-------------------設定Vundle的啟動及相關配件安裝------------------------------------------------------------------
-" 　記得又執行 ：BundleInstall 做套件安裝
+" 　記得又執行 ：BundleInstall 做套件安裝 或 BundleClean 進行套件移除
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
 	echo "Installing Vundle.."
@@ -25,23 +24,25 @@ if !filereadable(vundle_readme)
 endif
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle "scrooloose/syntastic"
 Bundle 'gmarik/vundle'
-Bundle "The-NERD-tree"
+"Bundle "scrooloose/syntastic"
+"Bundle "The-NERD-tree"
+Bundle "scrooloose/nerdtree"
 Bundle "taglist.vim"
 Bundle "wesleyche/Trinity" 
-Bundle "wesleyche/SrcExpl" 
+"Bundle "wesleyche/SrcExpl" 
+Bundle "SrcExpl" 
 Bundle "brookhong/cscope.vim"
 Bundle "yegappan/grep"
-"Bundle "scrooloose/nerdtree"
-"Bundle "Valloric/YouCompleteMe"
-Plugin 'Valloric/YouCompleteMe'
+Bundle "Valloric/YouCompleteMe"
+"Plugin 'Valloric/YouCompleteMe'
 "if !filereadable(vundle_readme)
 "echo "Installing Vundle.."
+
 ":BundleList    "      - list configured bundles
 ":BundleInstall
 ":BundleSearch(!) foo " - search(or refresh cache first) for foo
-" :BundleClean(!)     " - confirm(or auto-approve) removal of unused
+":BundleClean(!)     " - confirm(or auto-approve) removal of unused
 "endif
 
 
